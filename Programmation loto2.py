@@ -7,3 +7,10 @@ for i in range (y):
     s = np.randint(40,size=(5))
     s = list(s)
     print(s)
+
+    import numpy as np
+
+
+np.random.seed(100)
+nbr_aleatoire = np.random.randint(1,45, size =5)
+print(nbr_aleatoire)
