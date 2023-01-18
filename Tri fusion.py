@@ -1,13 +1,16 @@
+import numpy as np
+np.random.seed(int(input("Seed:")))
+y = int(input("Nombre de génération:"))
 
 
-
-
-def merge_sort(arr):
+def mergesort(arr):
     if len(arr) <= 1:
         return arr
     middle = len(arr) // 2
-    left = merge_sort(arr[:middle])
-    right = merge_sort(arr[middle:])
+    left = mergesort(arr[:middle])
+    right = mergesort(arr[middle:])
+
+
     return merge(left, right)
 
 def merge(left, right):
@@ -23,4 +26,9 @@ def merge(left, right):
     result.extend(left[i:])
     result.extend(right[j:])
     return result
-print(s)
+for i in range(y):
+        s = np.random.choice(range(1, 45), 5, replace=False)
+        print("Série générée :", s)
+        print("Série triée :", mergesort(s))
+
+
