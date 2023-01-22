@@ -1,6 +1,4 @@
-import numpy as np
-import json
-
+import csv
 def cocktailsort(arr):
     al = True
     n = len(arr)
@@ -23,18 +21,17 @@ def cocktailsort(arr):
         debut = debut + 1
     return arr
 
-def save_json_data(data, filename):
-    with open(filename, 'a') as json_file:
-        json.dump(data, json_file)
+def save_csv_data(data, filename):
+    with open(filename, 'a', newline='') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        writer.writerow(data)
 
 if __name__=='__main__':
     x = int(input("Entrez le nombre de tirage:"))
     np.random.seed(int(input("Seed:")))
-    all_data = []
     for i in range(x):
         arr = np.random.choice(range(1,45),5,replace=False)
         arr = list(arr)
         print("Le tirage est :", arr)
         print("Le tirage triée:", cocktailsort(arr))
-        all_data.append(arr)
-    save_json_data(all_data, 'tirage.json')
+        save_csv_data(arr, 'tirage.csv')

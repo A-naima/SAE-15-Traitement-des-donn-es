@@ -10,7 +10,6 @@ def mergesort(arr):
     left = mergesort(arr[:middle])
     right = mergesort(arr[middle:])
 
-
     return merge(left, right)
 
 def merge(left, right):

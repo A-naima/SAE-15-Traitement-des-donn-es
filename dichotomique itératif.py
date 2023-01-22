@@ -1,6 +1,6 @@
+#from numpy.random import radint
 import numpy as np
-
-
+print(np._version_)
 def binary_search_iterative(arr, x):
     start = 0
     end = len(arr) - 1
@@ -31,8 +31,8 @@ np.random.seed(int(input("Seed:")))
 y = int(input("Nombre de génération:"))
 for i in range(y):
     s = np.random.choice(range(1, 45), 5, replace=False)
-    s.sort()  # Assurez-vous que la série est triée avant d'utiliser la recherche binaire
-    x = np.random.randint(1, 45)  # Générer un entier aléatoire pour rechercher
+    s.sort()
+    x = np.random.randint(1, 45)
     if x not in s:
         continue
     print("Série générée :", s)
